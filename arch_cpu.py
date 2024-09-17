@@ -6,7 +6,7 @@ def main():
     elif sys.maxsize == 0x7FFFFFFFFFFFFFFF:
         print("64 bit")
     else:
-        print("Unknown")
+        print("ARM/64bits")
 
 if __name__ == "__main__":
     main()
