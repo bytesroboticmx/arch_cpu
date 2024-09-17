@@ -1,9 +1,9 @@
 import sys
 
 def main():
-    if sys.maxsize == 0xFFFFFFFF:
+    if sys.maxsize == 0x7FFFFFFF:
         print("32 bit")
-    elif sys.maxsize == 0xFFFFFFFFFFFFFFFF:
+    elif sys.maxsize == 0x7FFFFFFFFFFFFFFF:
         print("64 bit")
     else:
         print("Unknown")
