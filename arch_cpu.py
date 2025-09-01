@@ -1,12 +1,15 @@
-import sys
+import platform
 
 def main():
-    if sys.maxsize == 0x7FFFFFFF:
-        print("32 bit")
-    elif sys.maxsize == 0x7FFFFFFFFFFFFFFF:
-        print("64 bit")
+    arch, _ = platform.architecture()
+    machine = platform.machine().lower()
+
+    if 'arm' in machine or 'aarch64' in machine:
+        print(f"Arquitectura ARM detectada: {arch}")
+    elif 'x86' in machine or 'amd64' in machine or 'i386' in machine:
+        print(f"Arquitectura x86 detectada: {arch}")
     else:
-        print("ARM/64bits")
+        print(f"Arquitectura desconocida: {machine}, {arch}")
 
 if __name__ == "__main__":
     main()
