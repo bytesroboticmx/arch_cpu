@@ -1,6 +1,6 @@
 #Programa para detectar la arquitectura de la CPU (ARM o x86).
 #Autor: Dr. Aldo Gonzalez Vazquez
-#Fecha: 01/09/2025
+#Fecha: 29/09/2026
 #Licencia: MIT License
 import platform
 
