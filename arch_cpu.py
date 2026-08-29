@@ -4,16 +4,25 @@
 #Licencia: MIT License
 import platform
 
-def main():
-    arch, _ = platform.architecture()
-    machine = platform.machine().lower()
+def detectar_arquitectura(machine):
+    arm = {'arm', 'armv6l', 'armv7l', 'armv8l', 'aarch64', 'arm64'}
+    x86 = {'x86', 'x86_64', 'amd64', 'i386', 'i486', 'i586', 'i686'}
 
-    if 'arm' in machine or 'aarch64' in machine:
-        print(f"Arquitectura ARM detectada: {arch}")
-    elif 'x86' in machine or 'amd64' in machine or 'i386' in machine:
-        print(f"Arquitectura x86 detectada: {arch}")
+    if machine in arm:
+        return "ARM"
+    if machine in x86:
+        return "x86"
+    return None
+
+def main():
+    bits, _ = platform.architecture()
+    machine = platform.machine().lower()
+    arch = detectar_arquitectura(machine)
+
+    if arch:
+        print(f"Arquitectura {arch} detectada: {bits}")
     else:
-        print(f"Arquitectura desconocida: {machine}, {arch}")
+        print(f"Arquitectura desconocida: {machine}, {bits}")
 
 if __name__ == "__main__":
     main()
